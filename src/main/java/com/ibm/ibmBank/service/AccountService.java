@@ -1,5 +1,8 @@
 package com.ibm.ibmBank.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,16 @@ public class AccountService {
 	public String createAccount(Account account) {
 		Account savedAccount = accountRepository.save(account);
 		return savedAccount.getId();
+	}
+
+	public List<Account> getAccounts() {
+		// TODO Auto-generated method stub
+		return accountRepository.findAll();
+	}
+
+	public Optional<Account> getAccount(long number) {
+		// TODO Auto-generated method stub
+		return accountRepository.findByNumber(number);
 	}
 
 }
