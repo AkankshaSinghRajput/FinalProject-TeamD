@@ -13,6 +13,8 @@ public class Bank {
 	@NotNull
 	@NotBlank
 	private String branchName;
+	
+	private Address address;
 
 	public String getIfscCode() {
 		return ifscCode;
@@ -36,5 +38,13 @@ public class Bank {
 
 	public void setBranchName(String branchName) {
 		this.branchName = branchName;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }
