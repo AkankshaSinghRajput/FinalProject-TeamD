@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.ibm.ibmBank.entity.Bank;
 
-public interface BankRepository extends MongoRepository<Bank, String> {
+public interface AccountRepository extends MongoRepository<Bank, String> {
 
 }

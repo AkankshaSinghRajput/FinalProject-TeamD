@@ -1,5 +1,5 @@
 package com.ibm.ibmBank.service;
 
-public class BankService {
+public class AccountService {
 
 }
