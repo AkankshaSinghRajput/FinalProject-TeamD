@@ -1,6 +1,7 @@
 package com.ibm.ibmBank.entity;
 
 public class Address {
+	private String houseNumber;
 	private String city;
 	private String state;
 	private long pinCode;
@@ -22,6 +23,12 @@ public class Address {
 	}
 	public void setPinCode(long pinCode) {
 		this.pinCode = pinCode;
+	}
+	public String getHouseNumber() {
+		return houseNumber;
+	}
+	public void setHouseNumber(String houseNumber) {
+		this.houseNumber = houseNumber;
 	}
 
 }
