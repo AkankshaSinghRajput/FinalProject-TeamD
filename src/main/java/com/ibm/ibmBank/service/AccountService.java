@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ibm.ibmBank.STATUS;
 import com.ibm.ibmBank.entity.Account;
 import com.ibm.ibmBank.repo.AccountRepository;
 @Service
@@ -28,9 +29,18 @@ public class AccountService {
 		return accountRepository.findByNumber(number);
 	}
 
-	public void updateAccountStatus(Account account) {
+	public STATUS updateAccountStatus(Account account) {
 		// TODO Auto-generated method stub
 		accountRepository.save(account);
+		return account.getStatus();
+	}
+
+	public void setAccountRepository(AccountRepository accountRepository) {
+		this.accountRepository = accountRepository;
+		
+	}
+	public AccountRepository getAccountRepository() {
+		return accountRepository;
 	}
 
 }
