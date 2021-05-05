@@ -28,4 +28,9 @@ public class AccountService {
 		return accountRepository.findByNumber(number);
 	}
 
+	public void updateAccountStatus(Account account) {
+		// TODO Auto-generated method stub
+		accountRepository.save(account);
+	}
+
 }

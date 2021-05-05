@@ -22,7 +22,7 @@ public class Account {
 	private STATUS status;
 	@NotNull
 	private TYPE type;
-	
+	@NotNull
 	private Address address;
 	
 	

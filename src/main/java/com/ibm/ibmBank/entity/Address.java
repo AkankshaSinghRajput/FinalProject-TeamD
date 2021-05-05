@@ -3,7 +3,7 @@ package com.ibm.ibmBank.entity;
 public class Address {
 	private String city;
 	private String state;
-	private int pinCode;
+	private long pinCode;
 	
 	public String getCity() {
 		return city;
@@ -17,10 +17,10 @@ public class Address {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPinCode() {
+	public long getPinCode() {
 		return pinCode;
 	}
-	public void setPinCode(int pinCode) {
+	public void setPinCode(long pinCode) {
 		this.pinCode = pinCode;
 	}
 
