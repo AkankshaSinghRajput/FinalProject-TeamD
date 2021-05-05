@@ -3,7 +3,10 @@ package com.ibm.ibmBank.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +23,15 @@ public class AccountController {
 	AccountService accountService;
 	
 	@PostMapping("/account")
-	String createAccount(@RequestBody Account account) {
+	String createAccount(@RequestBody Account account, BindingResult bindingResult) {
+		validateModel(bindingResult);
 		return accountService.createAccount(account);
+	}
+	private void validateModel(Errors bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			throw new IllegalArgumentException("Something went wrong!!");
+		}
 	}
 	
 	@GetMapping("/account")
@@ -35,7 +45,8 @@ public class AccountController {
 	}
 	
 	@PutMapping("/account/{id}")
-	void updateAccountStatus(@RequestBody Account account, @PathVariable("id") String accountId) {
+	void updateAccountStatus(@RequestBody Account account, @PathVariable("id") String accountId, BindingResult bindingResult) {
+		validateModel(bindingResult);
 		account.setId(accountId);
 		accountService.updateAccountStatus(account);
 
