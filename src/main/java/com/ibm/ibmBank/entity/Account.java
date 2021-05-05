@@ -16,8 +16,8 @@ public class Account {
 	private String id;
 	@NotNull
 	private long number;
-	private String FirstName;
-	private String LastName;
+	private String firstName;
+	private String lastName;
 	private float balance;
 	@NotNull
 	private Date createDate;
@@ -72,16 +72,16 @@ public class Account {
 		this.address = address;
 	}
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 }
