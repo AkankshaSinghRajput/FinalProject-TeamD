@@ -1,6 +1,7 @@
 package com.ibm.ibmBank.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.validation.constraints.NotNull;
 
@@ -15,6 +16,8 @@ public class Account {
 	private String id;
 	@NotNull
 	private long number;
+	private String FirstName;
+	private String LastName;
 	private float balance;
 	@NotNull
 	private Date createDate;
@@ -67,6 +70,18 @@ public class Account {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public String getFirstName() {
+		return FirstName;
+	}
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
+	public String getLastName() {
+		return LastName;
+	}
+	public void setLastName(String lastName) {
+		LastName = lastName;
 	}
 
 }
