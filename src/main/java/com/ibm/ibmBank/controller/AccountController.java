@@ -22,11 +22,24 @@ public class AccountController {
 	@Autowired
 	AccountService accountService;
 	
+	/*
+	 * Create new account
+	 * @param account
+	 * @param bindingResult
+	 */
+	
 	@PostMapping("/account")
 	String createAccount(@RequestBody Account account, BindingResult bindingResult) {
 		validateModel(bindingResult);
 		return accountService.createAccount(account);
 	}
+	
+	/**
+	 * validation
+	 * 
+	 * @param bindingResult
+	 */
+	
 	private void validateModel(Errors bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
@@ -34,16 +47,36 @@ public class AccountController {
 		}
 	}
 	
+	/*
+	 * Display all the accounts 
+	 */
+	
 	@GetMapping("/account")
 	List<Account> getAccounts() {
 		return accountService.getAccounts();
 	}
+	
+	
+	/*
+	 * Display only those account details that matches with a given Account number
+	 * @param number
+     * @return account
+	 */
+	
 	
 	@GetMapping("/account/number/{number}")
 	Optional<Account> getAccount(@PathVariable("number") long number) {
 		return accountService.getAccount(number);
 	}
 	
+	
+	
+	/*
+	 * Update account details 
+	 * @param accountId
+	 * @param bindingResult
+	 * 
+	 */
 	@PutMapping("/account/{id}")
 	void updateAccountStatus(@RequestBody Account account, @PathVariable("id") String accountId, BindingResult bindingResult) {
 		validateModel(bindingResult);
