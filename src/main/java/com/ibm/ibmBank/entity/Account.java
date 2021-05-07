@@ -14,8 +14,11 @@ public class Account {
 	@Id
 	@NotNull
 	private String id;
-	@NotNull
-	private long number;
+	
+	UUID uuid = UUID.randomUUID();
+    String numericUUID = Long.toString(uuid.getMostSignificantBits());
+    private long number = java.lang.Math.abs(Long.parseLong(numericUUID));
+	
 	private String firstName;
 	private String lastName;
 	private float balance;
