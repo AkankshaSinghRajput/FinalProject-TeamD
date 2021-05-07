@@ -21,66 +21,66 @@ import com.ibm.ibmBank.service.AccountService;
 public class AccountController {
 	@Autowired
 	AccountService accountService;
-	
+
 	/*
 	 * Create new account
+	 * 
 	 * @param account
+	 * 
 	 * @param bindingResult
 	 */
-	
 	@PostMapping("/account")
 	String createAccount(@RequestBody Account account, BindingResult bindingResult) {
 		validateModel(bindingResult);
 		return accountService.createAccount(account);
 	}
-	
+
 	/**
 	 * validation
 	 * 
 	 * @param bindingResult
 	 */
-	
 	private void validateModel(Errors bindingResult) {
-		
-		if(bindingResult.hasErrors()) {
+
+		if (bindingResult.hasErrors()) {
 			throw new IllegalArgumentException("Something went wrong!!");
 		}
 	}
-	
+
 	/*
-	 * Display all the accounts 
+	 * Display all the accounts
 	 */
-	
 	@GetMapping("/account")
 	List<Account> getAccounts() {
 		return accountService.getAccounts();
 	}
-	
-	
+
 	/*
 	 * Display only those account details that matches with a given Account number
+	 * 
 	 * @param number
-     * @return account
+	 * 
+	 * @return account
 	 */
-	
-	
 	@GetMapping("/account/number/{number}")
 	Optional<Account> getAccount(@PathVariable("number") long number) {
 		return accountService.getAccount(number);
 	}
-	
-	
-	
+
 	/*
-	 * Update account details 
+	 * Update account details
+	 * 
 	 * @param accountId
+	 * 
 	 * @param bindingResult
 	 * 
 	 */
 	@PutMapping("/account/{id}")
-	void updateAccountStatus(@RequestBody Account account, @PathVariable("id") String accountId, BindingResult bindingResult) {
+	void updateAccountStatus(@RequestBody Account account, @PathVariable("id") String accountId,
+			BindingResult bindingResult) {
 		validateModel(bindingResult);
 		account.setId(accountId);
 		accountService.updateAccountStatus(account);
 
-}}
+	}
+}
