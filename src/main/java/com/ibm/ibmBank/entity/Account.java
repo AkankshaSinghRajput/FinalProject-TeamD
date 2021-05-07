@@ -19,8 +19,13 @@ public class Account {
     String numericUUID = Long.toString(uuid.getMostSignificantBits());
     private long number = java.lang.Math.abs(Long.parseLong(numericUUID));
 	
+	@NotNull
 	private String firstName;
+	@NotNull
 	private String lastName;
+	@NotNull
+	private long mobileNumber;
+	private String email;
 	private float balance;
 	@NotNull
 	private Date createDate;
@@ -85,6 +90,18 @@ public class Account {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public long getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setMobileNumber(long mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

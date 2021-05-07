@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ibm.ibmBank.STATUS;
 import com.ibm.ibmBank.entity.Account;
 import com.ibm.ibmBank.repo.AccountRepository;
+
 @Service
 public class AccountService {
 	@Autowired
@@ -20,25 +21,23 @@ public class AccountService {
 	}
 
 	public List<Account> getAccounts() {
-		// TODO Auto-generated method stub
 		return accountRepository.findAll();
 	}
 
 	public Optional<Account> getAccount(long number) {
-		// TODO Auto-generated method stub
 		return accountRepository.findByNumber(number);
 	}
 
 	public STATUS updateAccountStatus(Account account) {
-		// TODO Auto-generated method stub
 		accountRepository.save(account);
 		return account.getStatus();
 	}
 
 	public void setAccountRepository(AccountRepository accountRepository) {
 		this.accountRepository = accountRepository;
-		
+
 	}
+
 	public AccountRepository getAccountRepository() {
 		return accountRepository;
 	}
