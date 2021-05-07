@@ -15,9 +15,8 @@ public class Account {
 	@NotNull
 	private String id;
 	
-	UUID uuid = UUID.randomUUID();
-    String numericUUID = Long.toString(uuid.getMostSignificantBits());
-    private long number = java.lang.Math.abs(Long.parseLong(numericUUID));
+	@NotNull
+    private long number;
 	
 	@NotNull
 	private String firstName;
