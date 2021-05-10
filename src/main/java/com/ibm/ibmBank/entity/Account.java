@@ -23,7 +23,10 @@ public class Account {
 	@NotNull
 	private String lastName;
 	@NotNull
+	@Min(1000000000)
+	@Max(9999999999L)
 	private long mobileNumber;
+	@Email
 	private String email;
 	private float balance;
 	@NotNull
