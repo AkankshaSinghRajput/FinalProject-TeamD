@@ -2,6 +2,7 @@
 FROM java:8
 # We define that a volume named /tmp should exist
 VOLUME /tmp
+#added a comment
 # We add a file from the local file system, naming it “app.jar.” The renaming isn't necessary, just an option available
 ADD target/*.jar app.jar
 # We state that we want to open port 8080 on the container
