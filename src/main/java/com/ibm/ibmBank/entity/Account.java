@@ -3,6 +3,9 @@ package com.ibm.ibmBank.entity;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
